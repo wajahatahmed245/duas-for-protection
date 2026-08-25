@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Du'as for Protection — Authenticated Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#F6EFDE;
+    --parchment-deep:#EEE2C4;
+    --parchment-line:#E4D6AF;
+    --ink:#0E4A40;
+    --ink-soft:#1B5B50;
+    --gold:#A9793A;
+    --gold-light:#C9A768;
+    --indigo:#333F68;
+    --charcoal:#2A2419;
+    --muted:#79705B;
+    --paper-shadow: 0 1px 0 rgba(169,121,58,.35), 0 18px 40px -24px rgba(14,74,64,.35);
+    --radius: 6px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 500px at 50% -120px, rgba(169,121,58,.10), transparent 60%),
+      var(--parchment);
+    color:var(--charcoal);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background: var(--gold-light); color:#1a1a1a; }
+
+  a{ color:var(--ink); }
+
+  .arabic{
+    font-family:'Amiri', serif;
+    direction:rtl;
+    unicode-bidi: plaintext;
+  }
+
+  .label{
+    font-family:'Jost', sans-serif;
+    font-weight:600;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  /* ---------- Ornament ---------- */
+  .rosette{ display:block; margin:0 auto; }
+  .divider{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin: 8px 0 6px;
+    color:var(--gold);
+  }
+  .divider::before, .divider::after{
+    content:"";
+    height:1px; width:64px;
+    background:linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  }
+
+  /* ---------- Header ---------- */
+  header.hero{
+    max-width:760px;
+    margin:0 auto;
+    padding: 64px 24px 20px;
+    text-align:center;
+  }
+  header.hero .rosette{ width:54px; height:54px; opacity:.9; margin-bottom:18px; }
+  header.hero h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size: clamp(2.6rem, 6vw, 3.8rem);
+    color:var(--ink);
+    margin:0 0 6px;
+    letter-spacing:.01em;
+  }
+  header.hero .ar-sub{
+    font-size: 1.7rem;
+    color:var(--gold);
+    margin: 2px 0 10px;
+  }
+  header.hero .subtitle{
+    font-family:'Jost', sans-serif;
+    font-size:.92rem;
+    letter-spacing:.06em;
+    color:var(--muted);
+    font-style:normal;
+  }
+  header.hero .grading-note{
+    margin-top:22px;
+    font-size:.98rem;
+    color:var(--charcoal);
+    line-height:1.7;
+  }
+  header.hero .grading-note b{ color:var(--ink); }
+
+  /* ---------- Nav ---------- */
+  nav.toc{
+    position:sticky; top:0; z-index:40;
+    backdrop-filter: blur(6px);
+    background: rgba(246,239,222,.88);
+    border-bottom:1px solid var(--parchment-line);
+  }
+  nav.toc .toc-inner{
+    max-width:980px; margin:0 auto;
+    display:flex; align-items:center; gap:4px;
+    overflow-x:auto;
+    padding: 10px 18px;
+    scrollbar-width:none;
+  }
+  nav.toc .toc-inner::-webkit-scrollbar{ display:none; }
+  nav.toc a{
+    flex:0 0 auto;
+    font-family:'Jost', sans-serif;
+    font-size:.78rem;
+    letter-spacing:.03em;
+    color:var(--charcoal);
+    text-decoration:none;
+    padding:7px 12px;
+    border-radius:999px;
+    border:1px solid transparent;
+    white-space:nowrap;
+    transition: all .18s ease;
+  }
+  nav.toc a:hover{ border-color:var(--gold-light); color:var(--ink); }
+  nav.toc a.active{ background:var(--ink); color:var(--parchment); }
+  nav.toc a .n{ color:var(--gold); font-weight:600; margin-right:5px; }
+  nav.toc a.active .n{ color:var(--gold-light); }
+  nav.toc .print-btn{
+    margin-left:auto; flex:0 0 auto; order:99;
+    display:flex; align-items:center; gap:6px;
+    font-family:'Jost', sans-serif; font-size:.76rem; letter-spacing:.04em;
+    color:var(--muted); background:none; border:1px solid var(--parchment-line);
+    border-radius:999px; padding:7px 13px; cursor:pointer;
+  }
+  nav.toc .print-btn:hover{ color:var(--ink); border-color:var(--gold-light); }
+
+  /* ---------- Intro ---------- */
+  .intro{
+    max-width:700px; margin: 30px auto 10px; padding: 0 24px;
+    color:var(--charcoal);
+  }
+  .intro p{ margin: 0 0 14px; }
+  .intro .callout{
+    font-family:'Jost', sans-serif;
+    font-size:.86rem;
+    color:var(--muted);
+    background:var(--parchment-deep);
+    border-left:3px solid var(--gold);
+    padding:14px 18px;
+    border-radius:2px;
+    line-height:1.6;
+  }
+
+  /* ---------- Entries ---------- */
+  main{ max-width:700px; margin:0 auto; padding: 10px 24px 40px; }
+
+  .entry{
+    position:relative;
+    background: linear-gradient(180deg, #FBF7EC, var(--parchment));
+    border:1px solid var(--parchment-line);
+    border-radius: var(--radius);
+    box-shadow: var(--paper-shadow);
+    padding: 36px 30px 28px;
+    margin: 46px 0;
+    scroll-margin-top: 84px;
+  }
+
+  .entry .corner{ position:absolute; width:22px; height:22px; opacity:.55; }
+  .entry .corner.tl{ top:8px; left:8px; }
+  .entry .corner.tr{ top:8px; right:8px; transform:scaleX(-1); }
+  .entry .corner.bl{ bottom:8px; left:8px; transform:scaleY(-1); }
+  .entry .corner.br{ bottom:8px; right:8px; transform:scale(-1,-1); }
+
+  .entry .eyebrow{
+    display:flex; align-items:baseline; gap:10px;
+    margin-bottom: 4px;
+  }
+  .entry .eyebrow .num{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700; font-style:italic;
+    font-size:1.5rem; color:var(--gold);
+  }
+  .entry h2{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:1.7rem;
+    color:var(--ink);
+    margin: 0 0 18px;
+  }
+
+  .badges{ display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 22px; }
+  .badge{
+    font-family:'Jost', sans-serif; font-size:.68rem; font-weight:600;
+    letter-spacing:.08em; text-transform:uppercase;
+    padding: 4px 11px; border-radius:999px;
+    display:inline-flex; align-items:center; gap:5px;
+  }
+  .badge.sahih{ background:rgba(14,74,64,.1); color:var(--ink); border:1px solid rgba(14,74,64,.25); }
+  .badge.hasan{ background:rgba(51,63,104,.1); color:var(--indigo); border:1px solid rgba(51,63,104,.25); }
+  .badge.collection{ background:rgba(169,121,58,.1); color:var(--gold); border:1px solid rgba(169,121,58,.3); }
+
+  .ar-block{
+    position:relative;
+    text-align:right;
+    font-size: clamp(1.5rem, 3.6vw, 2rem);
+    line-height:2.05;
+    color:var(--ink);
+    font-weight:700;
+    padding: 4px 46px 4px 4px;
+    margin-bottom: 6px;
+  }
+  .copy-btn{
+    position:absolute; left:0; top:2px;
+    width:32px; height:32px;
+    border-radius:50%;
+    border:1px solid var(--parchment-line);
+    background:var(--parchment);
+    color:var(--muted);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition: all .15s ease;
+  }
+  .copy-btn:hover{ border-color:var(--gold); color:var(--gold); }
+  .copy-btn svg{ width:15px; height:15px; }
+  .copy-btn.copied{ color:var(--ink); border-color:var(--ink); }
+
+  .translit{
+    font-style:italic;
+    color:var(--gold);
+    font-size:1rem;
+    margin: 10px 0 16px;
+  }
+
+  blockquote.translation{
+    margin: 0 0 20px;
+    padding: 0 0 0 16px;
+    border-left: 2px solid var(--gold-light);
+    font-size:1.12rem;
+    color:var(--charcoal);
+  }
+
+  .meta-row{
+    display:grid; grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 0 0 18px;
+    padding: 16px 18px;
+    background: var(--parchment-deep);
+    border-radius:4px;
+  }
+  .meta-row .field .label{ display:block; margin-bottom:3px; }
+  .meta-row .field p{ margin:0; font-size:.98rem; }
+
+  .explanation{ margin: 0 0 16px; }
+  .explanation p{ margin:0; }
+
+  .reference{
+    font-family:'Jost', sans-serif;
+    font-size:.82rem;
+    color:var(--muted);
+    border-top:1px dashed var(--parchment-line);
+    padding-top:14px;
+    line-height:1.6;
+  }
+  .reference b{ color:var(--ink); font-weight:600; }
+
+  footer{
+    max-width:700px; margin:0 auto; padding: 10px 24px 70px;
+    text-align:center;
+  }
+  footer p{
+    font-family:'Jost', sans-serif; font-style:normal;
+    font-size:.82rem; color:var(--muted); line-height:1.7;
+  }
+
+  @media (max-width: 560px){
+    header.hero{ padding: 46px 18px 16px; }
+    .entry{ padding: 30px 18px 22px; }
+    .ar-block{ font-size: 1.5rem; padding-right:40px; }
+  }
+
+  @media print{
+    nav.toc, .copy-btn{ display:none !important; }
+    body{ background:#fff; font-size:12.5pt; }
+    .entry{ box-shadow:none; border:1px solid #ccc; break-inside: avoid; opacity:1 !important; transform:none !important; margin:18px 0; }
+    a[href]{ color:inherit; text-decoration:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- reusable ornament defs -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="star8">
+      <path d="M50 4 L61 34 L92 22 L70 46 L96 50 L70 54 L92 78 L61 66 L50 96 L39 66 L8 78 L30 54 L4 50 L30 46 L8 22 L39 34 Z"
+        fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+      <circle cx="50" cy="50" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    </g>
+    <g id="corner">
+      <path d="M2 22 V8 Q2 2 8 2 H22" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="2" cy="22" r="2" fill="currentColor"/>
+      <circle cx="22" cy="2" r="2" fill="currentColor"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="hero">
+  <svg class="rosette" viewBox="0 0 100 100" style="color:var(--gold)"><use href="#star8"/></svg>
+  <h1>Du&rsquo;as for Protection</h1>
+  <div class="ar-sub arabic">حِرْزٌ مِنَ الْأَذَى</div>
+  <div class="subtitle">A REFERENCE OF AUTHENTICATED SUPPLICATIONS &mdash; GRADED SAHIH OR HASAN</div>
+  <div class="grading-note">
+    Nine well-attested du&rsquo;as for protection, drawn only from narrations graded <b>sahih</b> (authentic) or <b>hasan</b> (good). Each entry gives the Arabic, transliteration, translation, occasion, a short explanation, and its full source.
+  </div>
+</header>
+
+<nav class="toc" id="toc">
+  <div class="toc-inner" id="tocInner">
+    <!-- filled by JS -->
+    <button class="print-btn" onclick="window.print()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Print
+    </button>
+  </div>
+</nav>
+
+<div class="intro">
+  <p class="callout">Narrations within Sahih al-Bukhari and Sahih Muslim carry consensus authenticity by virtue of inclusion in those two collections. For hadiths from the Sunan literature (Abu Dawud, al-Tirmidhi), the grading shown follows the assessments of the hadith specialist Muhammad Nasir al-Din al-Albani &mdash; principally <i>Sahih Sunan Abi Dawud</i>, <i>Sahih Sunan al-Tirmidhi</i>, and <i>Sahih al-Jami&lsquo; al-Saghir</i>.</p>
+</div>
+
+<main id="entries"></main>
+
+<footer>
+  <div class="divider"><svg width="18" height="18" style="color:var(--gold)" viewBox="0 0 100 100"><use href="#star8"/></svg></div>
+  <p>Prepared as a personal reference. Recitation of these du&rsquo;as is a means of seeking Allah&rsquo;s protection &mdash; it does not replace ordinary caution or lawful means of safety.</p>
+</footer>
+
+<script>
+const DATA = [
+  {
+    title: "General Protection, Wherever You Stop",
+    ar: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+    tr: "A\u2019udhu bikalim\u0101ti-Ll\u0101hi at-t\u0101mm\u0101ti min sharri m\u0101 khalaq",
+    en: "I seek refuge in the perfect words of Allah from the evil of what He has created.",
+    occasion: "Especially upon arriving somewhere new \u2014 while travelling, moving into new lodging, or stopping anywhere unfamiliar. Suitable at any time for general protection.",
+    explanation: "This du\u2019a was taught by the Prophet \uFDFA to Khawlah bint Hakim (ra), who reported that he said: \u201CWhoever alights at a place and then says [this du\u2019a], nothing will harm him until he moves on from that place.\u201D Because it invokes the \u201Cperfect words\u201D (kalim\u0101t) of Allah \u2014 His speech described as complete and free of any flaw or shortcoming \u2014 it functions as a comprehensive refuge from every kind of harm, seen and unseen.",
+    grade: "sahih", collection: "Sahih Muslim",
+    ref: "Sahih Muslim, no. 2708, narrated by Khawlah bint Hakim al-Sulamiyyah (ra)."
+  },
+  {
+    title: "Morning and Evening \u2014 Nothing Can Cause Harm",
+    ar: "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+    tr: "Bismill\u0101hi-lladh\u012B l\u0101 yadurru ma\u2019a ismihi shay\u2019un fil-ardi wa l\u0101 fis-sam\u0101\u2019i, wa Huwa as-Sam\u012B\u2018ul-\u2018Al\u012Bm",
+    en: "In the name of Allah, with whose name nothing on earth or in the heaven can cause harm, and He is the All-Hearing, the All-Knowing.",
+    occasion: "Three times each morning, and three times each evening, as part of the regular morning and evening remembrance (adhk\u0101r).",
+    explanation: "Uthman ibn Affan (ra) reported hearing the Messenger of Allah \uFDFA say: \u201CThere is no servant who says [this] three times in the morning and three times in the evening, and then anything harms him.\u201D It is one of the most consistently recommended lines in the daily adhk\u0101r, tied explicitly in the wording itself to protection from harm for that day or night.",
+    grade: "sahih", collection: "Abu Dawud &middot; Tirmidhi &middot; Ibn Majah",
+    ref: "Sunan Abu Dawud, no. 5088; also Jami\u2019 al-Tirmidhi 3388 and Sunan Ibn Majah 3869, narrated by Uthman ibn Affan (ra). Grade per Al-Albani."
+  },
+  {
+    title: "Ayat al-Kursi Before Sleeping",
+    ar: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+    tr: "(Al-Baqarah 2:255 \u2014 recited in full)",
+    en: "Allah \u2014 there is no deity except Him, the Ever-Living, the Sustainer of all existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what is behind them, and they encompass nothing of His knowledge except what He wills. His Kursi extends over the heavens and the earth, and preserving them tires Him not. And He is the Most High, the Most Great.",
+    occasion: "Before sleeping, every night.",
+    explanation: "In a well-known narration, Abu Hurairah (ra) was assigned by the Prophet \uFDFA to guard the store of Ramadan charity. He caught someone stealing from it on three successive nights; on the third, the thief \u2014 who turned out to be a shaytan \u2014 pleaded to be released in exchange for words of benefit: \u201CWhen you go to your bed, recite Ayat al-Kursi from beginning to end; a guardian from Allah will remain with you, and no shaytan will approach you until morning.\u201D The Prophet \uFDFA confirmed: \u201CHe told you the truth, although he is an inveterate liar \u2014 that was a shaytan.\u201D",
+    grade: "sahih", collection: "Sahih al-Bukhari",
+    ref: "Sahih al-Bukhari, no. 5010 (also numbered 2311 in some printings), narrated by Abu Hurairah (ra); verse: Al-Baqarah 2:255."
+  },
+  {
+    title: "The Last Two Verses of Al-Baqarah at Night",
+    ar: "آمَنَ الرَّسُولُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ<br>لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+    tr: "(Al-Baqarah 2:285\u2013286 \u2014 recited in full)",
+    en: "The Messenger has believed in what was revealed to him from his Lord, and so have the believers. Each one believes in Allah, His angels, His books, and His messengers: \u201CWe make no distinction between any of His messengers.\u201D And they say, \u201CWe hear and we obey; Your forgiveness, our Lord, and to You is the final return.\u201D Allah does not burden a soul beyond what it can bear. It will have what [good] it has earned, and it will bear what [evil] it has earned. \u201COur Lord, do not hold us accountable if we forget or make a mistake&hellip; Pardon us, forgive us, and have mercy on us. You are our Protector, so grant us victory over the disbelieving people.\u201D",
+    occasion: "At night, before sleeping.",
+    explanation: "The Prophet \uFDFA said: \u201CWhoever recites the last two verses of Surah al-Baqarah at night, they will suffice him.\u201D Commentators such as Ibn Kathir explain \u201Csuffice him\u201D as protection through the night and a covering that stands in place of additional night worship. A separate narration describes these verses as a gift given to the Prophet \uFDFA during the night of Isra and Mi\u2019raj \u2014 \u201Cfrom a treasure beneath the Throne,\u201D not given to any prophet before him.",
+    grade: "sahih", collection: "Sahih al-Bukhari &middot; Sahih Muslim",
+    ref: "Sahih al-Bukhari, nos. 5009 &amp; 5040, and Sahih Muslim 807, narrated by Abu Mas\u2019ud al-Ansari (ra); verses: Al-Baqarah 2:285\u2013286."
+  },
+  {
+    title: "Refuge from Anxiety, Debt, and Being Overpowered",
+    ar: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْجُبْنِ وَالْبُخْلِ، وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ",
+    tr: "All\u0101humma inn\u012B a\u2019\u016Bdhu bika minal-hammi wal-hazan, wal-\u2018ajzi wal-kasal, wal-jubni wal-bukhl, wa dala\u2018id-dayni wa ghalabatir-rij\u0101l",
+    en: "O Allah, I seek refuge in You from worry and grief, from incapacity and laziness, from cowardice and miserliness, from being overwhelmed by debt and from being overpowered by other men.",
+    occasion: "At times of distress, financial pressure, or feeling overwhelmed; also recommended as part of the regular morning remembrance.",
+    explanation: "Anas ibn Malik (ra) reported that the Prophet \uFDFA used to say this du\u2019a frequently. It addresses eight afflictions in four pairs \u2014 two emotional (worry over the future, grief over the past), two of capability (inability to act, unwillingness to act), two of character (fear that stops one doing right, withholding that stops one giving), and two external pressures (the weight of debt, domination by other people).",
+    grade: "sahih", collection: "Sahih al-Bukhari",
+    ref: "Sahih al-Bukhari, no. 6369, narrated by Anas ibn Malik (ra)."
+  },
+  {
+    title: "On Leaving the House",
+    ar: "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+    tr: "Bismill\u0101hi, tawakkaltu \u2018al\u0101-Ll\u0101hi, wa l\u0101 hawla wa l\u0101 quwwata ill\u0101 bill\u0101h",
+    en: "In the name of Allah, I place my trust in Allah; there is no power and no strength except with Allah.",
+    occasion: "Upon stepping out of the house.",
+    explanation: "The hadith continues that when a person says this, it is proclaimed to him: \u201CYou are guided, defended, and protected,\u201D and the shaytan accompanying him withdraws, saying to another shaytan, \u201CHow can you get to a man who has been guided, sufficed, and protected?\u201D",
+    grade: "sahih", collection: "Abu Dawud &middot; Tirmidhi",
+    ref: "Sunan Abu Dawud, no. 5095; also Jami\u2019 al-Tirmidhi 3426, narrated by Anas ibn Malik (ra). Grade per Al-Albani."
+  },
+  {
+    title: "Refuge from Anger, Punishment, and the Whisperings of Devils",
+    ar: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ غَضَبِهِ وَعِقَابِهِ، وَشَرِّ عِبَادِهِ، وَمِنْ هَمَزَاتِ الشَّيَاطِينِ وَأَنْ يَحْضُرُونِ",
+    tr: "A\u2019\u016Bdhu bikalim\u0101ti-Ll\u0101hi at-t\u0101mmati min ghadabihi wa \u2018iq\u0101bihi, wa sharri \u2018ib\u0101dihi, wa min hamaz\u0101tish-shay\u0101t\u012Bni wa an yahdur\u016Bn",
+    en: "I seek refuge in the perfect words of Allah, from His anger and His punishment, from the evil of His servants, and from the promptings of devils and from them being present with me.",
+    occasion: "Especially recommended when settling in a new place, at night, or while travelling; also suitable as a general protective du\u2019a.",
+    explanation: "Narrated by Amr ibn Shu\u2019ayb, from his father, from his grandfather Abdullah ibn Amr (ra), who reported that the Prophet \uFDFA used to teach this du\u2019a to his Companions the way he taught them a surah of the Qur\u2019an, and would teach it to children too young for the obligations of puberty, so they would memorize it.",
+    grade: "hasan", collection: "Abu Dawud &middot; Tirmidhi",
+    ref: "Sunan Abu Dawud, no. 3893; also Jami\u2019 al-Tirmidhi 3528. Grade per Al-Albani."
+  },
+  {
+    title: "Protection for Children (and Oneself)",
+    ar: "أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
+    tr: "U\u2019\u012Bdhukum\u0101 bikalim\u0101ti-Ll\u0101hi at-t\u0101mmati min kulli shayt\u0101nin wa h\u0101mmah, wa min kulli \u2018aynin l\u0101mmah",
+    en: "I seek refuge for you both in the perfect words of Allah, from every devil and every poisonous or harmful creature, and from every evil eye.",
+    occasion: "Recited over children for their protection. For oneself, substitute \u201Ca\u2019udhu\u201D (I seek refuge) for \u201Cu\u2019idhukuma\u201D (I seek refuge for you two).",
+    explanation: "Ibn Abbas (ra) reported that the Prophet \uFDFA used to seek refuge for his grandsons, Hasan and Husain, with these words, adding that their forefather Ibrahim (as) used to seek refuge with the very same words for his own sons, Isma\u2019il and Ishaq (as) \u2014 situating the practice within a chain of prophetic tradition.",
+    grade: "sahih", collection: "Sahih al-Bukhari",
+    ref: "Sahih al-Bukhari, no. 3371, narrated by Ibn Abbas (ra)."
+  },
+  {
+    title: "Al-Mu\u2019awwidhat\u0101n Before Sleep",
+    ar: "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ<br>قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِنْ شَرِّ مَا خَلَقَ ۝ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ<br>قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ",
+    tr: "S\u016Brah al-Ikhl\u0101s, S\u016Brah al-Falaq, and S\u016Brah an-N\u0101s (112, 113, 114)",
+    en: "Say: He is Allah, One. Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent. &mdash; Say: I seek refuge in the Lord of daybreak, from the evil of what He has created, from the evil of darkness when it settles, from the evil of those who blow on knots, and from the evil of an envier when he envies. &mdash; Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind, from the evil of the retreating whisperer, who whispers in the breasts of mankind, from among the jinn and mankind.",
+    occasion: "Every night, before sleeping.",
+    explanation: "Aisha (ra) reported that whenever the Prophet \uFDFA took to his bed each night, he would cup his hands together, recite these three surahs into them, then wipe his hands over as much of his body as he could reach, beginning with his head and face, repeating this three times. During his final illness, when he was no longer able to do this himself, Aisha would do it for him using his own hand.",
+    grade: "sahih", collection: "Sahih al-Bukhari &middot; Sahih Muslim",
+    ref: "Sahih al-Bukhari, no. 5017, and Sahih Muslim 2192, narrated by Aisha (ra)."
+  }
+];
+
+const entriesEl = document.getElementById('entries');
+const tocEl = document.getElementById('tocInner');
+
+DATA.forEach((d, i) => {
+  const id = 'dua-' + (i+1);
+
+  // TOC link
+  const a = document.createElement('a');
+  a.href = '#' + id;
+  a.innerHTML = `<span class="n">${i+1}</span>${d.title.split(',')[0].split(' \u2014 ')[0]}`;
+  tocEl.appendChild(a);
+
+  // Entry card
+  const art = document.createElement('article');
+  art.className = 'entry';
+  art.id = id;
+  art.innerHTML = `
+    <svg class="corner tl" viewBox="0 0 24 24" style="color:var(--gold)"><use href="#corner"/></svg>
+    <svg class="corner tr" viewBox="0 0 24 24" style="color:var(--gold)"><use href="#corner"/></svg>
+    <svg class="corner bl" viewBox="0 0 24 24" style="color:var(--gold)"><use href="#corner"/></svg>
+    <svg class="corner br" viewBox="0 0 24 24" style="color:var(--gold)"><use href="#corner"/></svg>
+
+    <div class="eyebrow"><span class="num">${i+1}</span></div>
+    <h2>${d.title}</h2>
+
+    <div class="badges">
+      <span class="badge ${d.grade}">${d.grade === 'sahih' ? 'Sahih' : 'Hasan'}</span>
+      <span class="badge collection">${d.collection}</span>
+    </div>
+
+    <div class="ar-block arabic">
+      ${d.ar}
+      <button class="copy-btn" title="Copy Arabic text" aria-label="Copy Arabic text">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+    </div>
+    <div class="translit">${d.tr}</div>
+    <blockquote class="translation">&ldquo;${d.en}&rdquo;</blockquote>
+
+    <div class="meta-row">
+      <div class="field">
+        <span class="label">When to Recite</span>
+        <p>${d.occasion}</p>
+      </div>
+    </div>
+
+    <div class="explanation">
+      <span class="label">Explanation</span>
+      <p style="margin-top:8px">${d.explanation}</p>
+    </div>
+
+    <div class="reference"><b>Reference.</b> ${d.ref}</div>
+  `;
+  entriesEl.appendChild(art);
+
+  // copy button behaviour
+  const btn = art.querySelector('.copy-btn');
+  btn.addEventListener('click', () => {
+    const text = d.ar.replace(/<br>/g, '\n');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.classList.remove('copied'); }, 1400);
+      }).catch(function(){});
+    }
+  });
+});
+
+// active nav highlight
+const navLinks = [...tocEl.querySelectorAll('a')];
+const navIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    const link = tocEl.querySelector(`a[href="#${e.target.id}"]`);
+    if (!link) return;
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+document.querySelectorAll('.entry').forEach(el => navIo.observe(el));
+</script>
+</body>
+</html>
